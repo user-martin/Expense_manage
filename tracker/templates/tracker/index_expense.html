@@ -1,0 +1,82 @@
+{% extends 'tracker/base.html'%}
+
+<!--{% load render_table from django_tables2 %} -->
+{% load django_tables2 crispy_forms_tags %}
+{% load bootstrap3 %}
+
+{% block body %}
+
+
+
+<div class="container expense-overview">
+
+<div class="modal-header">
+
+  <button type="button" class="btn btn-success js-create-expense" data-url="{% url 'tracker:expense_create' %}">
+    <span class="glyphicon glyphicon-plus"></span>
+    Create Expense
+  </button>
+
+  <button type="button" class="btn btn-success js-create-expense_set" data-url="{% url 'tracker:expense_create_formset' %}">
+    <span class="glyphicon glyphicon-plus"></span>
+    Create Expense Set
+  </button>
+
+  <button type="button" class="btn btn-success js-update-expense_set" data-url="{% url 'tracker:expense_update_formset' %}">
+    <span class="glyphicon glyphicon-plus"></span>
+    Update Expense Set
+  </button>
+
+</div>
+
+  <table class="table" id="expense-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Date</th>
+        <th>Description</th>
+        <th>Type</th>
+        <th>Payment</th>
+        <th>Amount</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% include 'tracker/expense_include/expense_list.html' %}
+    </tbody>
+  </table>
+
+  <div class="modal fade" id="modal-expense">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+      </div>
+    </div>
+  </div>
+
+  <!--Pagination-->
+      <div class="container p-4">
+        <div class="pagination justify-content-center">
+            <span class="step-links">
+              {% if expenses.has_previous %}
+                  <a href="?page=1">&laquo; first</a>
+                  <a href="?page={{ expenses.previous_page_number }}">previous</a>
+              {% endif %}
+
+                <span class="current">
+                    Page {{ expenses.number }} of {{ expenses.paginator.num_pages }}
+                </span>
+
+              {% if expenses.has_next %}
+                  <a href="?page={{ expenses.next_page_number }}">next</a>
+                  <a href="?page={{ expenses.paginator.num_pages }}">last &raquo;</a>
+              {% endif %}
+            </span>
+            </div>
+        </div>
+  <!--Pagination-->
+
+</div>
+
+
+{% endblock %}

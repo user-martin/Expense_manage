@@ -1,0 +1,25 @@
+{% extends 'tracker/base.html'%}
+
+<!--{% load render_table from django_tables2 %}-->
+
+{% load bootstrap3 %}
+
+{% block body %}
+
+<div>
+
+  <form class = "update" method="GET">
+      <select id="airline-selected">
+          {% for l, i in month_list.items %}
+              <option value="{{ i }}">
+              {{ l }}
+              </option>
+          {% endfor %}
+      </select>
+      <input type="button" value="Update" id="selection-button">
+  </form>
+
+<div id="main_content">
+  {% include "tracker/index_main_content.html" %}
+</div>
+{% endblock %}
