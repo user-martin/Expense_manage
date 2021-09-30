@@ -22,6 +22,8 @@ import pandas as pd
 
 
 
+
+
 def expense_list(request):
     expenses_list = Expense.objects.filter(created_by=request.user)
     paginator = Paginator(expenses_list, 10)
@@ -552,21 +554,7 @@ class AnalyticsView(generic.ListView):
         return render(request, "analytics/index.html", context)
 
 
-
-class landingView():
-    def landing(request):
-
-        context = {}
-
-        return render(request, "landing/index.html", context)
-
-
-
 class MainView():
-
-
-
-
 
     def main(request):
 
@@ -624,3 +612,24 @@ class MainView():
             return render(request, "tracker/index_main_content.html", context)
         else:
             return render(request, "tracker/index_main.html", context)
+
+
+def export_pdf(request):
+
+    response = HttpResponse(content_type = 'application/pdf')
+    response['Content-Disposition'] = 'attachment; filename = Expense' + \
+        str(dt.now())+'.pdf'
+    response['Content-Transfer-Encoding'] = 'binary'
+
+    html_string = render_to_string('tracker/expense_include/export_pdf.html',{'expenses': []})
+    html = HTML(string=html_string)
+
+    result = html.write_pdf()
+
+    with tempfile.NamedTemporaryFile(delete=True) as output:
+
+        output.write(result)
+        output.flush()
+        output = open(output.name, 'rb')
+        response.write(output.read())
+    return response

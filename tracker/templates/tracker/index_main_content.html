@@ -1,49 +1,46 @@
-<div class="col-1 left-container">
+<div class="left-container">
   <li>
-  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="info-box bg-pink hover-expand-effect">
-                      <div class="icon">
-                        <i class="material-icons">savings</i>
-                        </div>
-                        <div class="content">
-                          <div class="text">INCOME</div>
-                          <div class="number">{{total_salary}}</div>
-                          </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="info-box bg-pink hover-expand-effect">
+        <div class="icon">
+          <i class="material-icons">savings</i>
+        </div>
+        <div class="content">
+          <div class="text">INCOME</div>
+          <div class="number">{{total_salary}}</div>
+        </div>
+      </div>
+    </div>
 
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="info-box bg-cyan hover-expand-effect">
+          <div class="icon">
+            <i class="material-icons">attach_money</i>
+          </div>
+          <div class="content">
+            <div class="text">EXPENSE</div>
+            <div class="number">{{total_spent}}</div>
+          </div>
+        </div>
+      </div>
 
-                      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="info-box bg-light-green hover-expand-effect">
+          <div class="icon">
+            <i class="material-icons">account_balance</i>
+          </div>
+          <div class="content">
+            <div class="text">BALANCE</div>
+            <div class="number">{{balance}}</div>
+          </div>
+        </div>
+      </div>
+
+  </li>
 </div>
 
-<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="info-box bg-cyan hover-expand-effect">
-                      <div class="icon">
-                        <i class="material-icons">attach_money</i>
-                        </div>
-                        <div class="content">
-                          <div class="text">EXPENSE</div>
-                          <div class="number">{{total_spent}}</div>
-                          </div>
-                    </div>
-                </div>
-<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="info-box bg-light-green hover-expand-effect">
-                      <div class="icon">
-                        <i class="material-icons">account_balance</i>
-                        </div>
-                        <div class="content">
-                          <div class="text">BALANCE</div>
-                          <div class="number">{{balance}}</div>
-                          </div>
-                    </div>
-                </div>
 
-</li>
-</div>
-
-
-<div class="col-1 right-container">
-
-  <div class="leftpane">
+<div class="center-container">
 
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
       <script type="text/javascript">
@@ -81,7 +78,7 @@
 
 </div>
 
-<div id="table-id" class="rightpane">
+<div id="table-id" class="right-container">
 
 {% autoescape off %}{{ table_content }}{% endautoescape %}
 
@@ -98,11 +95,6 @@ $(function() {
   });
 });
 </script>
-
-
-</div>
-
-</div>
 
 
 </div>

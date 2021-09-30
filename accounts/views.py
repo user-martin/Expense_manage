@@ -15,7 +15,7 @@ def register(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=user.username, password=raw_password)
             login(request, user)
-            return redirect('tracker:book_list')
+            return redirect('tracker:expense_list')
     else:
         form = RegisterForm()
     return render(request, 'register.html', {'form': form})

@@ -112,13 +112,15 @@ a:hover{
 
 .login{
     background-color: #2e6644;
-    color: #708779;
+    color: black;
     padding: 40px;
     text-align: center;
+    background-repeat:no-repeat;
+    background-size:cover
 }
 
 .login a{
-    color: #ffeeff;
+    color: black;
 }
 
 .login .logo{
@@ -437,6 +439,7 @@ a:hover{
     height: 100vh;
 }
 
+
 .update {
     background-color: #010b13;
     padding-top: 15px;
@@ -446,7 +449,7 @@ a:hover{
 
 
 .left-container {
-    height: 100vh;
+    height: 80vh;
     width: 25%;
     background-color: #000000;
     background-image: linear-gradient(#010b13,#2c3e50);
@@ -457,9 +460,20 @@ a:hover{
 }
 
 
+.center-container {
+    height: 80vh;
+    width: 37%;
+    background-color: #000000;
+    background-image: linear-gradient(#010b13,#2c3e50);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    float: left;
+}
+
 .right-container {
-    height: 100vh;
-    width: 75%;
+    height: 80vh;
+    width: 38%;
     background-color: #000000;
     background-image: linear-gradient(#010b13,#2c3e50);
     background-size: cover;
@@ -467,27 +481,6 @@ a:hover{
     position: relative;
     float: right;
 }
-
-.leftpane{
-    width: 50%;
-    height: 100vh;
-    position: relative;
-    float: left;
-    background-color: transparent;
-    border-collapse: collapse;
-}
-
-.rightpane{
-    width: 50%;
-    height: 100vh;
-    position: relative;
-    float: right;
-    background-color: transparent;
-    border-collapse: collapse;
-}
-
-
-
 
 
 
@@ -582,7 +575,6 @@ a:hover{
   position: relative;
   color: black;
   text-transform:capitalize;
-  right: 15px;
   background-color: white;
 }
 
